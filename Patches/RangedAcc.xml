@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <Operation Class="XmlExtensions.ForEach">
+    <xpath>Defs/ThingDef | Defs/thingDef</xpath>
+    <storeIn>Loop_Multi</storeIn>
+    <apply> 
+
+        <Operation Class="PatchOperationConditional">
+          <xpath>{Loop_Multi}/statBases/AccuracyTouch</xpath>
+
+          <match Class="XmlExtensions.UseSetting">
+            <modId>UniversalMultiplier</modId>
+            <key>Multi_RangedAcc</key>
+            <defaultValue>1</defaultValue>   
+            <apply>
+
+              <Operation Class="XmlExtensions.PatchOperationMath">
+                <xpath>{Loop_Multi}/statBases/AccuracyTouch</xpath>
+                <value>{Multi_RangedAcc}</value>
+                <operation>*</operation>
+              </Operation>
+
+              <Operation Class="XmlExtensions.PatchOperationMath">
+                <xpath>{Loop_Multi}/statBases/AccuracyShort</xpath>
+                <value>{Multi_RangedAcc}</value>
+                <operation>*</operation>
+              </Operation>
+
+              <Operation Class="XmlExtensions.PatchOperationMath">
+                <xpath>{Loop_Multi}/statBases/AccuracyMedium</xpath>
+                <value>{Multi_RangedAcc}</value>
+                <operation>*</operation>
+              </Operation>
+
+              <Operation Class="XmlExtensions.PatchOperationMath">
+                <xpath>{Loop_Multi}/statBases/AccuracyLong</xpath>
+                <value>{Multi_RangedAcc}</value>
+                <operation>*</operation>
+              </Operation>
+
+            </apply>
+          </match>
+
+        </Operation>
+
+        <Operation Class="PatchOperationConditional">
+          <xpath>{Loop_Multi}/verbs//AccuracyTouch</xpath>
+
+          <match Class="XmlExtensions.UseSetting">
+            <modId>UniversalMultiplier</modId>
+            <key>Multi_RangedAcc</key>
+            <defaultValue>1</defaultValue>   
+            <apply>
+
+              <Operation Class="XmlExtensions.PatchOperationMath">
+                <xpath>{Loop_Multi}/verbs//AccuracyTouch</xpath>
+                <value>{Multi_RangedAcc}</value>
+                <operation>*</operation>
+              </Operation>
+
+              <Operation Class="XmlExtensions.PatchOperationMath">
+                <xpath>{Loop_Multi}/verbs//AccuracyShort</xpath>
+                <value>{Multi_RangedAcc}</value>
+                <operation>*</operation>
+              </Operation>
+
+              <Operation Class="XmlExtensions.PatchOperationMath">
+                <xpath>{Loop_Multi}/verbs//AccuracyMedium</xpath>
+                <value>{Multi_RangedAcc}</value>
+                <operation>*</operation>
+              </Operation>
+
+              <Operation Class="XmlExtensions.PatchOperationMath">
+                <xpath>{Loop_Multi}/verbs//AccuracyLong</xpath>
+                <value>{Multi_RangedAcc}</value>
+                <operation>*</operation>
+              </Operation>
+
+            </apply>
+          </match>
+
+        </Operation>
+
+    </apply>
+  </Operation>
+
+</Patch>

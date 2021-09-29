@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <Operation Class="PatchOperationAdd">
+  <xpath>Defs</xpath>
+  <value>
+
+   <XmlExtensions.SettingsMenuDef>
+    <defName>UniversalMultiplier</defName>
+    <modId>UniversalMultiplier</modId>
+    <label>Universal Multiplier</label>
+    <settings>
+      <li Class="XmlExtensions.Setting.Text">
+        <text>All settings require restart to take effect</text>
+        <anchor>Middle</anchor>
+      </li>
+      <li Class="XmlExtensions.Setting.Text">
+        <text>1=Vanilla for all settings</text>
+        <anchor>Middle</anchor>
+      </li>
+      <li Class="XmlExtensions.Setting.GapLine" />
+      <li Class="XmlExtensions.Setting.Slider">
+        <key>Multi_ArmorSE</key>
+        <label>Armor Stuff Effect Multiplier: {Multi_ArmorSE}</label>
+        <min>0</min>
+        <max>2</max>
+        <decimals>2</decimals>
+      </li>
+      <li Class="XmlExtensions.Setting.Slider">
+        <key>Multi_ArmorSharp</key>
+        <label>Armor Sharp Multiplier: {Multi_ArmorSharp}</label>
+        <min>0</min>
+        <max>2</max>
+        <decimals>2</decimals>
+      </li>
+      <li Class="XmlExtensions.Setting.Slider">
+        <key>Multi_ArmorBlunt</key>
+        <label>Armor Blunt Multiplier: {Multi_ArmorBlunt}</label>
+        <min>0</min>
+        <max>2</max>
+        <decimals>2</decimals>
+      </li>
+      <li Class="XmlExtensions.Setting.Slider">
+        <key>Multi_ArmorHeat</key>
+        <label>Armor Heat Multiplier: {Multi_ArmorHeat}</label>
+        <min>0</min>
+        <max>2</max>
+        <decimals>2</decimals>
+      </li>
+      <li Class="XmlExtensions.Setting.Slider">
+        <key>Multi_HeatInSE</key>
+        <label>Heat Insulation Stuff Effect Multiplier: {Multi_HeatInSE}</label>
+        <min>0</min>
+        <max>2</max>
+        <decimals>2</decimals>
+      </li>
+      <li Class="XmlExtensions.Setting.Slider">
+        <key>Multi_ColdInSE</key>
+        <label>Cold Insulation Stuff Effect Multiplier: {Multi_ColdInSE}</label>
+        <min>0</min>
+        <max>2</max>
+        <decimals>2</decimals>
+      </li>
+      <li Class="XmlExtensions.Setting.Slider">
+        <key>Multi_HeatIn</key>
+        <label>Heat Insulation Multiplier: {Multi_HeatIn}</label>
+        <min>0</min>
+        <max>2</max>
+        <decimals>2</decimals>
+      </li>
+      <li Class="XmlExtensions.Setting.Slider">
+        <key>Multi_ColdIn</key>
+        <label>Cold Insulation Multiplier: {Multi_ColdIn}</label>
+        <min>0</min>
+        <max>2</max>
+        <decimals>2</decimals>
+      </li>
+      <li Class="XmlExtensions.Setting.Slider">
+        <key>Multi_MeleeCD</key>
+        <label>Melee Weapon Cooldown Multiplier: {Multi_MeleeCD}</label>
+        <min>0.1</min>
+        <max>2</max>
+        <decimals>2</decimals>
+      </li>
+      <li Class="XmlExtensions.Setting.Slider">
+        <key>Multi_RangedCD</key>
+        <label>Ranged Weapon Cooldown Multiplier: {Multi_RangedCD}</label>
+        <min>0</min>
+        <max>2</max>
+        <decimals>2</decimals>
+      </li>
+      <li Class="XmlExtensions.Setting.Slider">
+        <key>Multi_RangedWU</key>
+        <label>Ranged Weapon Warmup Multiplier: {Multi_RangedWU}</label>
+        <min>0</min>
+        <max>2</max>
+        <decimals>2</decimals>
+      </li>  
+      <li Class="XmlExtensions.Setting.Slider">
+        <key>Multi_RangedRange</key>
+        <label>Ranged Weapon Range Multiplier: {Multi_RangedRange}</label>
+        <min>0.1</min>
+        <max>5</max>
+        <decimals>2</decimals>
+      </li>
+      <li Class="XmlExtensions.Setting.Slider">
+        <key>Multi_RangedAcc</key>
+        <label>Ranged Weapon Accuracy Multiplier: {Multi_RangedAcc}</label>
+        <min>0</min>
+        <max>2</max>
+        <decimals>2</decimals>
+      </li>  
+      <li Class="XmlExtensions.Setting.Slider">
+        <key>Multi_RangedAccT</key>
+        <label>Turret Shooting Accuracy Multiplier: {Multi_RangedAccT} (This stacks with multiplier above)</label>
+        <min>0</min>
+        <max>2</max>
+        <decimals>2</decimals>
+      </li>
+      <li Class="XmlExtensions.Setting.Slider">
+        <key>Multi_ProjSpeed</key>
+        <label>Projectile Speed Multiplier: {Multi_ProjSpeed} (All Projectiles)</label>
+        <min>1</min>
+        <max>11</max>
+        <decimals>2</decimals>
+      </li>
+      <li Class="XmlExtensions.Setting.Slider">
+        <key>Multi_BulletSpeed</key>
+        <label>Bullet Speed Multiplier: {Multi_BulletSpeed} (Hits defs with ParentName="BaseBullet", stacks with multiplier above)</label>
+        <min>1</min>
+        <max>11</max>
+        <decimals>2</decimals>
+      </li>
+      <li Class="XmlExtensions.Setting.Slider">
+        <key>Multi_Flame</key>
+        <label>Flammability Multiplier: {Multi_Flame} "Why don't you just make ten louder and make ten be the top number and make that a little louder?"</label>
+        <min>0</min>
+        <max>11</max>
+        <decimals>2</decimals>
+      </li>
+      <li Class="XmlExtensions.Setting.Slider">
+        <key>Multi_DetRate</key>
+        <label>Deterioration Rate Multiplier: {Multi_DetRate}</label>
+        <min>0</min>
+        <max>11</max>
+        <decimals>2</decimals>
+      </li>
+      <li Class="XmlExtensions.Setting.GapLine" />
+      <li Class="XmlExtensions.Setting.ResetSettings"/>
+    </settings>
+   </XmlExtensions.SettingsMenuDef>
+
+  </value>
+  </Operation>
+
+</Patch>

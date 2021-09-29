@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <Operation Class="XmlExtensions.ForEach">
+    <xpath>Defs/ThingDef | Defs/thingDef</xpath>
+    <storeIn>Loop_Multi</storeIn>
+    <apply> 
+
+        <Operation Class="PatchOperationConditional">
+          <xpath>{Loop_Multi}/statBases/ShootingAccuracyTurret</xpath>
+
+          <match Class="XmlExtensions.UseSetting">
+            <modId>UniversalMultiplier</modId>
+            <key>Multi_RangedAccT</key>
+            <defaultValue>1</defaultValue>   
+            <apply>
+
+              <Operation Class="XmlExtensions.PatchOperationMath">
+                <xpath>{Loop_Multi}/statBases/ShootingAccuracyTurret</xpath>
+                <value>{Multi_RangedAccT}</value>
+                <operation>*</operation>
+              </Operation>
+
+            </apply>
+          </match>
+
+        </Operation>
+
+    </apply>
+  </Operation>
+
+</Patch>

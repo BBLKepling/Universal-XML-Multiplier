@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <Operation Class="XmlExtensions.ForEach">
+    <xpath>Defs/ThingDef | Defs/thingDef</xpath>
+    <storeIn>Loop_Multi</storeIn>
+    <apply> 
+
+        <Operation Class="PatchOperationConditional">
+          <xpath>{Loop_Multi}/verbs//warmupTime</xpath>
+
+          <match Class="XmlExtensions.UseSetting">
+            <modId>UniversalMultiplier</modId>
+            <key>Multi_RangedWU</key>
+            <defaultValue>1</defaultValue>   
+            <apply>
+
+              <Operation Class="XmlExtensions.PatchOperationMath">
+                <xpath>{Loop_Multi}/verbs//warmupTime</xpath>
+                <value>{Multi_RangedWU}</value>
+                <operation>*</operation>
+              </Operation>
+
+            </apply>
+          </match>
+
+        </Operation>
+
+    </apply>
+  </Operation>
+
+  <Operation Class="XmlExtensions.ForEach">
+    <xpath>Defs/HediffDef | Defs/hediffDef</xpath>
+    <storeIn>Loop_Multi</storeIn>
+    <apply> 
+
+        <Operation Class="PatchOperationConditional">
+          <xpath>{Loop_Multi}/comps//verbs//warmupTime</xpath>
+
+          <match Class="XmlExtensions.UseSetting">
+            <modId>UniversalMultiplier</modId>
+            <key>Multi_RangedWU</key>
+            <defaultValue>1</defaultValue>   
+            <apply>
+
+              <Operation Class="XmlExtensions.PatchOperationMath">
+                <xpath>{Loop_Multi}/comps//verbs//warmupTime</xpath>
+                <value>{Multi_RangedWU}</value>
+                <operation>*</operation>
+              </Operation>
+
+            </apply>
+          </match>
+
+        </Operation>
+
+    </apply>
+  </Operation>
+
+</Patch>

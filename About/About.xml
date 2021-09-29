@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Universal XML Multiplier</name>
+  <author>bblkepling</author>
+  <supportedVersions>
+    <li>1.3</li>
+  </supportedVersions>
+  <packageId>bblkepling.UniversalMultiplier</packageId>
+  <description>		
+Universal multiplier for some stats.
+	</description>
+  <modDependencies>
+    <li>
+        <packageId>Imranfish.XMLExtensions</packageId>
+	<displayName>XML Extensions</displayName>
+	<downloadUrl>https://github.com/15adhami/XmlExtensions/releases</downloadUrl>
+        <steamWorkshopUrl>steam://url/CommunityFilePage/2574315206</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>Imranfish.XMLExtensions</li>
+  </loadAfter>
+</ModMetaData>
