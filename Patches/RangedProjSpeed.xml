@@ -1,31 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
 
-  <Operation Class="XmlExtensions.ForEach">
-    <xpath>Defs/ThingDef | Defs/thingDef</xpath>
-    <storeIn>Loop_Multi</storeIn>
-    <apply> 
-
-        <Operation Class="PatchOperationConditional">
-          <xpath>{Loop_Multi}/projectile/speed</xpath>
-
-          <match Class="XmlExtensions.UseSetting">
-            <modId>UniversalMultiplier</modId>
-            <key>Multi_ProjSpeed</key>
-            <defaultValue>1</defaultValue>   
-            <apply>
-
-              <Operation Class="XmlExtensions.PatchOperationMath">
-                <xpath>{Loop_Multi}/projectile/speed</xpath>
-                <value>{Multi_ProjSpeed}</value>
-                <operation>*</operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>UniversalMultiplier</modId>
+    <key>Multi_ProjSpeed</key>
+    <defaultValue>1</defaultValue>   
+    <apply>
+      <Operation Class="XmlExtensions.IfStatement">
+        <condition Class="XmlExtensions.Boolean.Comparison">
+          <value1>{Multi_ProjSpeed}</value1>
+          <value2>1</value2>
+        </condition>
+        <caseFalse> 
+          <Operation Class="XmlExtensions.ForEach">
+            <xpath>Defs/*[self::ThingDef or self::thingDef]/projectile/speed</xpath>
+            <storeIn>Loop_Multi</storeIn>
+            <apply> 
+              <Operation Class="XmlExtensions.IfStatement">
+                <condition Class="XmlExtensions.Boolean.Comparison">
+                  <value1>{Multi_ProjSpeed}</value1>
+                  <value2>0</value2>
+                </condition>
+                <caseTrue> 
+                  <Operation Class="PatchOperationReplace">
+                    <xpath>{Loop_Multi}/projectile/speed</xpath>
+                    <value>
+                      <speed>0</speed>
+                    </value>
+                  </Operation>
+                </caseTrue>
+                <caseFalse> 
+                  <Operation Class="XmlExtensions.PatchOperationMath">
+                    <xpath>{Loop_Multi}/projectile/speed</xpath>
+                    <value>{Multi_ProjSpeed}</value>
+                    <operation>*</operation>
+                  </Operation>
+                </caseFalse>
               </Operation>
-
             </apply>
-          </match>
-
-        </Operation>
-
+          </Operation>
+        </caseFalse>
+      </Operation>
     </apply>
   </Operation>
 

@@ -1,31 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
 
-  <Operation Class="XmlExtensions.ForEach">
-    <xpath>Defs/ThingDef[@ParentName="BaseBullet"] | Defs/thingDef[@ParentName="BaseBullet"]</xpath>
-    <storeIn>Loop_Multi</storeIn>
-    <apply> 
-
-        <Operation Class="PatchOperationConditional">
-          <xpath>{Loop_Multi}/projectile/speed</xpath>
-
-          <match Class="XmlExtensions.UseSetting">
-            <modId>UniversalMultiplier</modId>
-            <key>Multi_BulletSpeed</key>
-            <defaultValue>1</defaultValue>   
-            <apply>
-
-              <Operation Class="XmlExtensions.PatchOperationMath">
-                <xpath>{Loop_Multi}/projectile/speed</xpath>
-                <value>{Multi_BulletSpeed}</value>
-                <operation>*</operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>UniversalMultiplier</modId>
+    <key>Multi_BulletSpeed</key>
+    <defaultValue>1</defaultValue>   
+    <apply>
+      <Operation Class="XmlExtensions.IfStatement">
+        <condition Class="XmlExtensions.Boolean.Comparison">
+          <value1>{Multi_BulletSpeed}</value1>
+          <value2>1</value2>
+        </condition>
+        <caseFalse> 
+          <Operation Class="XmlExtensions.ForEach">
+            <xpath>Defs/*[self::*[self::ThingDef or self::thingDef] and @ParentName="BaseBullet"]/projectile/speed</xpath>
+            <storeIn>Loop_Multi</storeIn>
+            <apply> 
+              <Operation Class="XmlExtensions.IfStatement">
+                <condition Class="XmlExtensions.Boolean.Comparison">
+                  <value1>{Multi_BulletSpeed}</value1>
+                  <value2>0</value2>
+                </condition>
+                <caseTrue> 
+                  <Operation Class="PatchOperationReplace">
+                    <xpath>{Loop_Multi}/projectile/speed</xpath>
+                    <value>
+                      <speed>0</speed>
+                    </value>
+                  </Operation>
+                </caseTrue>
+                <caseFalse> 
+                  <Operation Class="XmlExtensions.PatchOperationMath">
+                    <xpath>{Loop_Multi}/projectile/speed</xpath>
+                    <value>{Multi_BulletSpeed}</value>
+                    <operation>*</operation>
+                  </Operation>
+                </caseFalse>
               </Operation>
-
             </apply>
-          </match>
-
-        </Operation>
-
+          </Operation>
+        </caseFalse>
+      </Operation>
     </apply>
   </Operation>
 

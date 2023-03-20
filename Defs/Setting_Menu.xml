@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Patch>
+<Defs>
 
-  <Operation Class="PatchOperationAdd">
-  <xpath>Defs</xpath>
-  <value>
-
-   <XmlExtensions.SettingsMenuDef>
+  <XmlExtensions.SettingsMenuDef>
     <defName>UniversalMultiplier</defName>
     <modId>UniversalMultiplier</modId>
     <label>Universal Multiplier</label>
@@ -120,6 +116,7 @@
       <li Class="XmlExtensions.Setting.Slider">
         <key>Multi_ProjSpeed</key>
         <label>Projectile Speed Multiplier: {Multi_ProjSpeed} (All Projectiles)</label>
+        <defaultValue>1</defaultValue>
         <min>1</min>
         <max>11</max>
         <decimals>2</decimals>
@@ -127,6 +124,7 @@
       <li Class="XmlExtensions.Setting.Slider">
         <key>Multi_BulletSpeed</key>
         <label>Bullet Speed Multiplier: {Multi_BulletSpeed} (Hits defs with ParentName="BaseBullet", stacks with multiplier above)</label>
+        <defaultValue>1</defaultValue>
         <min>1</min>
         <max>11</max>
         <decimals>2</decimals>
@@ -134,6 +132,7 @@
       <li Class="XmlExtensions.Setting.Slider">
         <key>Multi_Flame</key>
         <label>Flammability Multiplier: {Multi_Flame} "Why don't you just make ten louder and make ten be the top number and make that a little louder?"</label>
+        <defaultValue>1</defaultValue>
         <min>0</min>
         <max>11</max>
         <decimals>2</decimals>
@@ -141,6 +140,7 @@
       <li Class="XmlExtensions.Setting.Slider">
         <key>Multi_DetRate</key>
         <label>Deterioration Rate Multiplier: {Multi_DetRate}</label>
+        <defaultValue>1</defaultValue>
         <min>0</min>
         <max>11</max>
         <decimals>2</decimals>
@@ -148,9 +148,6 @@
       <li Class="XmlExtensions.Setting.GapLine" />
       <li Class="XmlExtensions.Setting.ResetSettings"/>
     </settings>
-   </XmlExtensions.SettingsMenuDef>
+  </XmlExtensions.SettingsMenuDef>
 
-  </value>
-  </Operation>
-
-</Patch>
+</Defs>

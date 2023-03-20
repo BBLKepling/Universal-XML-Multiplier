@@ -3,36 +3,36 @@
 
   <Operation Class="XmlExtensions.UseSetting">
     <modId>UniversalMultiplier</modId>
-    <key>Multi_DetRate</key>
+    <key>Multi_Flame</key>
     <defaultValue>1</defaultValue>   
     <apply>
       <Operation Class="XmlExtensions.IfStatement">
         <condition Class="XmlExtensions.Boolean.Comparison">
-          <value1>{Multi_DetRate}</value1>
+          <value1>{Multi_Flame}</value1>
           <value2>1</value2>
         </condition>
         <caseFalse> 
           <Operation Class="XmlExtensions.ForEach">
-            <xpath>Defs/*[self::ThingDef or self::thingDef]/statBases/DeteriorationRate</xpath>
+            <xpath>Defs/*[self::ThingDef or self::thingDef]/statBases/Flammability</xpath>
             <storeIn>Loop_Multi</storeIn>
             <apply> 
               <Operation Class="XmlExtensions.IfStatement">
                 <condition Class="XmlExtensions.Boolean.Comparison">
-                  <value1>{Multi_DetRate}</value1>
+                  <value1>{Multi_Flame}</value1>
                   <value2>0</value2>
                 </condition>
                 <caseTrue> 
                   <Operation Class="PatchOperationReplace">
-                    <xpath>{Loop_Multi}/statBases/DeteriorationRate</xpath>
+                    <xpath>{Loop_Multi}/statBases/Flammability</xpath>
                     <value>
-                      <DeteriorationRate>0</DeteriorationRate>
+                      <Flammability>0</Flammability>
                     </value>
                   </Operation>
                 </caseTrue>
                 <caseFalse> 
                   <Operation Class="XmlExtensions.PatchOperationMath">
-                    <xpath>{Loop_Multi}/statBases/DeteriorationRate</xpath>
-                    <value>{Multi_DetRate}</value>
+                    <xpath>{Loop_Multi}/statBases/Flammability</xpath>
+                    <value>{Multi_Flame}</value>
                     <operation>*</operation>
                   </Operation>
                 </caseFalse>
