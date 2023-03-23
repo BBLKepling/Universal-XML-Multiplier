@@ -145,6 +145,18 @@
         <max>11</max>
         <decimals>2</decimals>
       </li>
+      <li Class="XmlExtensions.Setting.Text">
+        <text>Trader Silver Multiplier Range:</text>
+        <anchor>Left</anchor>
+      </li>
+      <li Class="XmlExtensions.Setting.Range">
+        <key>Multi_TraderSilverHigh</key>
+        <key2>Multi_TraderSilverLow</key2>
+        <defaultValue>1~1</defaultValue>
+        <min>1</min>
+        <max>11</max>
+        <decimals>0</decimals>
+      </li>
       <li Class="XmlExtensions.Setting.GapLine" />
       <li Class="XmlExtensions.Setting.ResetSettings"/>
     </settings>

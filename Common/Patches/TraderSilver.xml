@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <Operation Class="XmlExtensions.UseSettings">
+    <modId>UniversalMultiplier</modId>
+    <keys>
+      <li>Multi_TraderSilverLow</li>
+      <li>Multi_TraderSilverHigh</li>
+    </keys>
+    <defaultValues> 
+      <li>1</li>
+      <li>1</li>
+    </defaultValues> 
+    <apply>
+      <Operation Class="XmlExtensions.IfStatement">
+        <condition Class="XmlExtensions.Boolean.And">
+          <conditions>
+            <li Class="XmlExtensions.Boolean.Comparison">
+              <value1>{Multi_TraderSilverLow}</value1>
+              <value2>1</value2>
+            </li>
+            <li Class="XmlExtensions.Boolean.Comparison">
+              <value1>{Multi_TraderSilverHigh}</value1>
+              <value2>1</value2>
+            </li>
+          </conditions>
+        </condition>
+        <caseFalse> 
+          <Operation Class="XmlExtensions.ForEach">
+            <xpath>Defs/*[self::*[self::TraderKindDef or self::traderKindDef] and stockGenerators/li[@Class="StockGenerator_SingleDef" and thingDef="Silver"]]</xpath>
+            <storeIn>Loop_Multi</storeIn>
+            <apply>
+              <Operation Class="XmlExtensions.PatchOperationMath">
+                <xpath>{Loop_Multi}/stockGenerators/li[@Class="StockGenerator_SingleDef" and thingDef="Silver"]/countRange</xpath>
+                <value>{Multi_TraderSilverLow}</value>
+                <operation>*</operation>
+                <rangeMax>
+                  <value>{Multi_TraderSilverHigh}</value>
+                </rangeMax>
+              </Operation>
+            </apply>
+          </Operation>
+        </caseFalse>
+      </Operation>
+    </apply>
+  </Operation>
+
+</Patch>
